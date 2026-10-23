@@ -1,0 +1,259 @@
+/* =========================================================
+   EV Charge Finder - glowing black + neon green theme
+   Change the colours below to restyle the whole website.
+   ========================================================= */
+:root {
+  --neon: #00ff88;                      /* main glowing green */
+  --neon-dim: #00c96b;                  /* darker green for gradients */
+  --neon-glow: rgba(0, 255, 136, 0.45); /* glow colour */
+  --bg: #050805;                        /* page background (near black) */
+  --panel: #0a110d;                     /* cards and panels */
+  --panel-2: #0f1a14;                   /* inputs, hover areas */
+  --line: #14402a;                      /* thin green borders */
+  --text: #e6fff2;                      /* main text */
+  --muted: #8fb3a0;                     /* secondary text */
+  --danger: #ff3b5c;                    /* busy / error colour */
+  --radius: 14px;                       /* roundness of cards */
+}
+
+/* Make Bootstrap use our dark palette */
+[data-bs-theme="dark"] {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-border-color: var(--line);
+  --bs-secondary-color: var(--muted);
+  --bs-tertiary-bg: var(--panel-2);
+}
+
+body {
+  background:
+    radial-gradient(1100px 520px at 8% -8%, rgba(0, 255, 136, 0.13), transparent 60%),
+    radial-gradient(900px 480px at 100% 0%, rgba(0, 255, 136, 0.07), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+.text-muted, .form-text { color: var(--muted) !important; }
+.text-success { color: var(--neon) !important; }
+a { color: var(--neon); }
+a:hover { color: #7dffc0; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background: rgba(0, 0, 0, 0.88);
+  border-bottom: 1px solid rgba(0, 255, 136, 0.4);
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.25);
+  backdrop-filter: blur(6px);
+}
+.navbar-brand {
+  font-family: "Orbitron", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--neon) !important;
+  text-shadow: 0 0 10px var(--neon-glow), 0 0 22px var(--neon-glow);
+}
+.navbar-brand::before { content: "\26A1\00a0"; }
+.navbar .nav-link { color: var(--text); font-weight: 500; transition: all 0.15s ease; }
+.navbar .nav-link:hover { color: var(--neon); text-shadow: 0 0 10px var(--neon-glow); }
+.navbar .text-warning { color: var(--neon) !important; }
+
+/* ---------- Headings ---------- */
+h4, h5, h6 { color: var(--neon); text-shadow: 0 0 12px rgba(0, 255, 136, 0.35); font-weight: 700; }
+h4 { font-family: "Orbitron", "Segoe UI", sans-serif; letter-spacing: 0.5px; }
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.08);
+  color: var(--text);
+}
+.bg-white { background-color: var(--panel) !important; }
+
+/* ---------- Buttons ---------- */
+.btn { border-radius: 10px; font-weight: 600; transition: all 0.15s ease; }
+.btn-success {
+  background: linear-gradient(135deg, var(--neon), var(--neon-dim));
+  border: 0;
+  color: #02140a;
+  box-shadow: 0 0 14px var(--neon-glow);
+}
+.btn-success:hover, .btn-success:focus {
+  background: linear-gradient(135deg, #5dffb0, var(--neon));
+  color: #02140a;
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.8);
+  transform: translateY(-1px);
+}
+.btn-outline-success { color: var(--neon); border-color: var(--neon); background: transparent; }
+.btn-outline-success:hover {
+  background: var(--neon); border-color: var(--neon); color: #02140a;
+  box-shadow: 0 0 18px var(--neon-glow);
+}
+.btn-outline-secondary { color: var(--muted); border-color: var(--line); background: transparent; }
+.btn-outline-secondary:hover { color: var(--neon); border-color: var(--neon); background: rgba(0, 255, 136, 0.08); }
+.btn-light { background: transparent; color: var(--neon); border: 1px solid var(--neon); }
+.btn-light:hover { background: var(--neon); color: #02140a; }
+
+/* ---------- Forms ---------- */
+.form-label { color: var(--muted); font-weight: 600; }
+.form-control, .form-select {
+  background-color: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 10px;
+}
+.form-control::placeholder { color: #55705f; }
+.form-control:focus, .form-select:focus {
+  background-color: var(--panel-2);
+  color: var(--text);
+  border-color: var(--neon);
+  box-shadow: 0 0 0 0.15rem rgba(0, 255, 136, 0.25), 0 0 14px rgba(0, 255, 136, 0.25);
+}
+.form-range { accent-color: var(--neon); }
+.form-check-input { background-color: var(--panel-2); border-color: var(--line); }
+.form-check-input:checked { background-color: var(--neon); border-color: var(--neon); }
+
+/* ---------- Alerts and badges ---------- */
+.alert { border-radius: 12px; }
+.badge { padding: 0.45em 0.75em; border-radius: 20px; font-weight: 600; }
+.badge.bg-success {
+  background: rgba(0, 255, 136, 0.14) !important;
+  color: var(--neon);
+  border: 1px solid rgba(0, 255, 136, 0.55);
+}
+.badge.bg-danger {
+  background: rgba(255, 59, 92, 0.14) !important;
+  color: var(--danger);
+  border: 1px solid rgba(255, 59, 92, 0.55);
+}
+
+/* ---------- Tables ---------- */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-striped-bg: rgba(0, 255, 136, 0.04);
+  --bs-table-striped-color: var(--text);
+  --bs-table-hover-bg: rgba(0, 255, 136, 0.1);
+  --bs-table-hover-color: var(--text);
+  --bs-table-border-color: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.08);
+}
+.table thead th {
+  background: #0d1a12 !important;
+  color: var(--neon) !important;
+  border-bottom: 1px solid var(--neon);
+  font-weight: 700;
+  text-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* ---------- Maps (Leaflet) ---------- */
+#map, .find-map {
+  height: 520px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 255, 136, 0.45);
+  box-shadow: 0 0 26px rgba(0, 255, 136, 0.25);
+}
+.find-map { height: 440px; }
+
+/* turn the light OpenStreetMap tiles into a dark map */
+#map .leaflet-tile-pane, .find-map .leaflet-tile-pane {
+  filter: invert(100%) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.8);
+}
+/* glow for routes and station dots */
+.leaflet-overlay-pane svg path { filter: drop-shadow(0 0 6px rgba(0, 255, 136, 0.85)); }
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid rgba(0, 255, 136, 0.45);
+  box-shadow: 0 0 18px var(--neon-glow);
+}
+.leaflet-container a.leaflet-popup-close-button { color: var(--neon); }
+.leaflet-tooltip { background: var(--panel); color: var(--text); border: 1px solid var(--neon); }
+.leaflet-bar a { background: var(--panel); color: var(--neon); border-bottom: 1px solid var(--line); }
+.leaflet-bar a:hover { background: var(--panel-2); color: #fff; }
+.leaflet-control-attribution { background: rgba(0, 0, 0, 0.7) !important; color: var(--muted) !important; }
+.leaflet-control-attribution a { color: var(--neon) !important; }
+
+.user-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #00b3ff; border: 3px solid #001018;
+  box-shadow: 0 0 0 4px rgba(0, 179, 255, 0.3), 0 0 16px #00b3ff;
+}
+
+/* ---------- Map page (side panel) ---------- */
+.station-list { max-height: 360px; overflow-y: auto; padding-right: 4px; }
+.station-item {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: var(--panel-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.station-item:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.3);
+  transform: translateY(-1px);
+}
+.route-steps { max-height: 280px; overflow-y: auto; }
+.route-steps .leaflet-routing-container {
+  width: 100%; margin: 0; background: transparent; box-shadow: none; padding: 0; color: var(--text);
+}
+.route-steps .leaflet-routing-alt { max-height: none; border: 0; padding: 0; background: transparent; color: var(--text); }
+.route-steps .leaflet-routing-alt h2 { font-size: 1rem; color: var(--neon); }
+.route-steps .leaflet-routing-alt h3 { font-size: 0.85rem; color: var(--muted); }
+.route-steps .leaflet-routing-alt tr:hover { background: rgba(0, 255, 136, 0.1); }
+
+/* ---------- Find Stations page (controls -> map -> cards) ---------- */
+.route-banner {
+  position: absolute;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 92%;
+  background: rgba(5, 8, 5, 0.94);
+  color: var(--text);
+  padding: 8px 16px;
+  border: 1px solid var(--neon);
+  border-radius: 30px;
+  box-shadow: 0 0 18px var(--neon-glow);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.res-card {
+  height: 100%;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.06);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.res-card:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.35);
+  transform: translateY(-3px);
+}
+.res-card .line { font-size: 0.9rem; color: var(--muted); margin: 3px 0; }
+.res-card .line b { color: var(--text); }
+.tag {
+  font-size: 0.72rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 99px; white-space: nowrap;
+}
+.tag.yes { background: rgba(0, 255, 136, 0.14); color: var(--neon); border: 1px solid rgba(0, 255, 136, 0.55); }
+.tag.no  { background: rgba(143, 179, 160, 0.12); color: var(--muted); border: 1px solid var(--line); }
+
+/* ---------- Scrollbars and footer ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-dim); }
+footer { color: var(--muted); }
